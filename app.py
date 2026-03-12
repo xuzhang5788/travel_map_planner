@@ -5,7 +5,12 @@ from streamlit_folium import st_folium
 
 # 1. 初始化 Google Maps 客户端
 # 建议在部署时将 API Key 存入 Streamlit 的 Secrets 中
-API_KEY = st.secrets["GOOGLE_MAPS_API_KEY"] if "GOOGLE_MAPS_API_KEY" in st.secrets else "你的API_KEY"
+#API_KEY = st.secrets["GOOGLE_MAPS_API_KEY"] if "GOOGLE_MAPS_API_KEY" in st.secrets else "你的API_KEY"
+
+API_KEY = st.secrets["GOOGLE_MAPS_API_KEY"]
+
+# 只有在确保 API_KEY 存在时才初始化
+
 gmaps = googlemaps.Client(key=API_KEY)
 
 st.title("🗺️ 智能景点规划助手")
